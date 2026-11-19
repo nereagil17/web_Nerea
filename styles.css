@@ -110,6 +110,30 @@ a:focus-visible {
   color: var(--white);
 }
 
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.language-toggle {
+  width: 42px;
+  height: 42px;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  background: transparent;
+  color: var(--green-dark);
+  font: 800 0.72rem 'Manrope', 'Segoe UI', sans-serif;
+  cursor: pointer;
+  transition: border-color 160ms ease, background-color 160ms ease, color 160ms ease;
+}
+
+.language-toggle:hover {
+  border-color: var(--green);
+  background: var(--green);
+  color: var(--white);
+}
+
 .hero {
   position: relative;
   display: grid;
@@ -621,6 +645,11 @@ h1 {
   }
 
   .nav-cta {
+    margin-left: 0;
+  }
+
+  .nav-actions {
+    order: 2;
     margin-left: auto;
   }
 
