@@ -21,7 +21,7 @@
         <button class="language-toggle" type="button" aria-label="Traducir la página al inglés" data-i18n-aria="language.aria">
           <span class="language-code" aria-hidden="true">EN</span>
         </button>
-        <a class="nav-cta" href="assets/cv-nerea-gil-del-brio.pdf" download><span data-i18n="nav.download">Descargar CV</span> <span aria-hidden="true">↗</span></a>
+        <a class="nav-cta" href="assets/cv-nerea-gil-del-brio.pdf" download data-i18n-href="cv"><span data-i18n="nav.download">Descargar CV</span> <span aria-hidden="true">↗</span></a>
       </div>
     </nav>
   </header>
@@ -186,7 +186,7 @@
         <a href="mailto:nereagildelbrio@gmail.com">nereagildelbrio@gmail.com <span aria-hidden="true">↗</span></a>
         <a href="tel:+34659131094">+34 659 131 094 <span aria-hidden="true">↗</span></a>
         <a href="https://www.linkedin.com/in/nerea-gil-del-brio-5b465a1a8" target="_blank" rel="noopener noreferrer">LinkedIn <span aria-hidden="true">↗</span></a>
-        <a href="assets/cv-nerea-gil-del-brio.pdf" download><span data-i18n="footer.download">Descargar currículum</span> <span aria-hidden="true">↓</span></a>
+        <a href="assets/cv-nerea-gil-del-brio.pdf" download data-i18n-href="cv"><span data-i18n="footer.download">Descargar currículum</span> <span aria-hidden="true">↓</span></a>
       </div>
     </div>
     <div class="page-width footer-bottom">
@@ -375,6 +375,12 @@
 
       document.querySelectorAll("[data-i18n-aria]").forEach((element) => {
         element.setAttribute("aria-label", translations[language][element.dataset.i18nAria]);
+      });
+
+      document.querySelectorAll("[data-i18n-href]").forEach((element) => {
+        element.href = language === "es"
+          ? "assets/cv-nerea-gil-del-brio.pdf"
+          : "CV%20Nerea%20Gil%20del%20Brio%20(English).pdf";
       });
 
       localStorage.setItem("portfolio-language", language);
